@@ -28,7 +28,7 @@ app.post('/uploadMultipart', upload.array('logo',3), function(req, res, next) {
     let path = req.files.map((p)=>p.path);
     res.send({
         err: null,
-        filePath: 'upload/' + path
+        filePath:path
     });
 });
 
