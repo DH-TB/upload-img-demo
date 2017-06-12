@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        function uploadImg() {
+            let file = document.getElementById('imgFile').files[0];
+            let formData = new FormData();
+            formData.append("avatar", file);
+            $.ajax({
+                type:'POST',
+                url:'/uploadImg',
+                data:formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $("#img").attr("src",data.filePath);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<input type="file" id="imgFile"/>
+<button onclick="uploadImg()">+</button>
+<img id="img"/>
+</body>
+</html>
