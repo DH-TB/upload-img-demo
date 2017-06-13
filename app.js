@@ -3,8 +3,8 @@ let app =express();
 let path = require('path');
 let multer = require('multer');
 
-app.use('/',express.static('./'));
-app.use('/ajax',express.static('./ajax.html'));
+app.use('/',express.static('./public'));
+app.use('/ajax',express.static('./public/ajax.html'));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
